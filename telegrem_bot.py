@@ -90,14 +90,6 @@ async def echo_message(message: types.Message):
 
 async def main():
 
-    app = web.Application()
-    app.router.add_get("/", health_check)
-    runner = web.AppRunner(app)
-    await runner.setup()
-    site = web.TCPSite(runner, "0.0.0.0", 8000)
-    await site.start()
-    print("Фейковый сервер запущен на порту 8000")
-
     await database.create_pool()
     await database.create_table()
 
